@@ -1,0 +1,7 @@
+Hello! This is my profile page.
+
+I have started learning HTML5 again.
+
+In this assignment, I tried to create a web page using only the `<table>` tag.
+
+I hope this assignment will help improve my HTML skills.
