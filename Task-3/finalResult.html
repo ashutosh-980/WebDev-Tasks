@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding JavaScript</title>
+    <style>
+      h1{
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-image: linear-gradient(blue, greenyellow, violet, red, pink, orange);
+        background-clip: text;
+        color: transparent;
+      }
+      table {
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        border: 2px solid blue;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+      }
+      table tr td {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Final Result</h1>
+
+    <script>
+      let name = prompt("Enter you full name here :-", "Aman Mishra");
+      let age = parseInt(prompt("Enter your age here :- ", "21"));
+
+      let subj1 = prompt("Enter name of First subject", "Physics");
+      let subj2 = prompt("Enter name of Second subject", "Chemistry");
+      let subj3 = prompt("Enter name of Third subject", "Mathematics");
+      let subj4 = prompt("Enter name of Fourth subject", "Physical Education");
+      let subj5 = prompt("Enter name of Fifth subject", "Computer Science");
+
+      let sub1 = parseInt(prompt("Enter your First subject marks", "100"));
+      let sub2 = parseInt(prompt("Enter your Second subject marks", "100"));
+      let sub3 = parseInt(prompt("Enter your Third subject marks", "100"));
+      let sub4 = parseInt(prompt("Enter your Fourth subject marks", "100"));
+      let sub5 = parseInt(prompt("Enter your Fifth subject marks", "100"));
+
+      //Checking the condition marks is less than or equals to 100
+      if (sub1 > 100 || sub2 > 100 || sub3 > 100 || sub4 > 100 || sub5 > 100) {
+        alert("Enter correct marks and marks should between 0 to 100");
+      } else {
+
+        //let totalMarks = parseInt(prompt("Enter your total Marks", "500"));
+        let totalMarks = 500;
+
+
+        //calculating percentage 
+        let percentage =
+          ((sub1 + sub2 + sub3 + sub4 + sub5) / totalMarks) * 100;
+        
+
+        //calculating grade according to their percentage
+        let grade = (percentage >= 90)? "A" : (percentage >= 80)? "B" : (percentage >= 70)? "C" : (percentage >= 60)? "D" : (percentage >= 33)? "E" : "Better Luck Next Time!!!" ;
+
+        //assigning color based on the grade
+        let color = (percentage >= 90)? "greenyellow" : (percentage >= 80)? "blue" : (percentage >= 70)? "violet" : (percentage >= 60)? "yellow" : (percentage >= 33)? "E" : "red" ;
+
+        document.writeln(`
+
+          <table border="1" cellspacing="0">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Age</th>
+                      <th colspan="5" >Subjects</th>
+                      <th>Percentage</th>
+                      <th>Grade</th>
+                  </tr>
+              </thead>
+
+              <tbody style="color : ${color}">
+                  <tr>
+                      <td rowspan="2">${name}</td>
+                      <td rowspan="2">${age}</td>
+                      <td>${subj1}</td>
+                      <td>${subj2}</td>
+                      <td>${subj3}</td>
+                      <td>${subj4}</td>
+                      <td>${subj5}</td>
+                      <td rowspan="2">${percentage}%</td>
+                      <td rowspan="2">${grade}</td>
+                  </tr>
+
+                  <tr>
+                      <td>${sub1}</td>
+                      <td>${sub2}</td>
+                      <td>${sub3}</td>
+                      <td>${sub4}</td>
+                      <td>${sub5}</td>
+                  </tr>
+              </tbody>
+           </table>
+
+      `);
+      }
+    </script>
+  </body>
+</html>
